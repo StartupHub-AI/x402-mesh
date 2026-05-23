@@ -1,6 +1,6 @@
 # x402-mesh
 
-**An open peer-pricelist and referral protocol for AI-agent commerce, layered on top of [x402](https://github.com/coinbase/x402).**
+**An open peer-pricelist and referral protocol for safe agentic commerce, layered on top of [x402](https://github.com/coinbase/x402).**
 
 When an AI agent hits a paywall, it sees one price and one vendor. x402-mesh turns that dead end into a market: the `402` response also carries a signed menu of competing offers, and if the agent picks a competitor, that competitor pays the referrer a commission. Every vendor is both a seller and a broker. Reciprocity does the rest.
 
