@@ -90,6 +90,26 @@ x402-mesh is the **commerce** layer. It deliberately does not define how an agen
 
 The mesh token already uses the same primitives these standards rely on: an ed25519 JWT with issuer, audience, expiry, and a single-use id. A referral can optionally carry an actor-chain claim so a referred payment proves provenance (which agent, acting for whom). Bring your own identity layer; the mesh settles the money.
 
+## Composes with
+
+x402-mesh is a thin layer, not a walled garden. It rides on top of existing rails and identity standards rather than replacing them.
+
+**Settlement rails** (the payout router is rail-agnostic):
+
+- **Coinbase x402** — the base payment standard this extends.
+- **USDC on Base** — the default atomic on-chain split (see `contracts/`).
+- **Cloudflare** — x402 facilitation across multiple chains, plus Web Bot Auth for edge agent verification.
+- **Stripe / ACP**, **PayPal**, **Visa** — fiat and card rails for vendors who settle off-chain.
+
+**Identity** (bring your own; the mesh settles the money):
+
+- **Catena ACK-ID** — agent identity via W3C DIDs and Verifiable Credentials.
+- **WorkOS auth.md** — agentic registration for human-delegated agents.
+- **IETF WIMSE / OAuth 2.0 Token Exchange (RFC 8693)** — the actor-chain direction.
+- **Google A2A**, **Cisco AGNTCY** — agent-to-agent interop and identity infrastructure.
+
+A fuller map of the agentic-commerce ecosystem lives at [startuphub.ai](https://www.startuphub.ai).
+
 ## What this is not
 
 - Not a marketplace. No central UI, no listings, no reviews. It is a wire format and a settlement primitive.
